@@ -95,7 +95,30 @@ fun getProfileByIdM(profileId: String): Bitmap{
 
     //val k = Color.valueOf(startColorArgb)
     return fullImageProcessM(
-        text = profileId, width = 200, height = 200, startColor = startColor, endColor = endColor,
-        textColor = Color.White, textSize = 20f, typeface = Typeface.SANS_SERIF, shuffleSeed = backgroundShuffleSeed
+        text = profileId, width = 1200, height = 1200, startColor = startColor, endColor = endColor,
+        textColor = Color.White, textSize = 120f, typeface = Typeface.DEFAULT, shuffleSeed = backgroundShuffleSeed
+    )
+}
+
+fun getProfileByIdN(profileId: String): Bitmap{
+    val initials = "${profileId[0]}${profileId[1]}${profileId[2]}"
+    val iD = "${profileId[3]}${profileId[4]}${profileId[5]}${profileId[6]}${profileId[7]}${profileId[8]}${profileId[9]}${profileId[10]}${profileId[11]}"
+
+    val startRed = "${profileId[12]}${profileId[13]}${profileId[14]}".toInt()
+    val startGreen = "${profileId[15]}${profileId[16]}${profileId[17]}".toInt()
+    val startBlue = "${profileId[18]}${profileId[19]}${profileId[20]}".toInt()
+
+    val endRed = "${profileId[21]}${profileId[22]}${profileId[23]}".toInt()
+    val endGreen = "${profileId[24]}${profileId[25]}${profileId[26]}".toInt()
+    val endBlue = "${profileId[27]}${profileId[28]}${profileId[29]}".toInt()
+
+    val backgroundShuffleSeed = ("${profileId[30]}${profileId[31]}${profileId[32]}${profileId[33]}${profileId[34]}${profileId[35]}").toInt()
+    val startColor = Color(red = startRed, green = startGreen, blue = startBlue)
+    val endColor = Color(red = endRed, green = endGreen, blue = endBlue)
+
+    //val k = Color.valueOf(startColorArgb)
+    return fullImageProcessStack(
+        text = profileId, width = 1200, height = 1200, startColor = startColor, endColor = endColor,
+        textColor = Color.White, textSize = 50f, typeface = Typeface.DEFAULT, shuffleSeed = backgroundShuffleSeed.toLong()
     )
 }
